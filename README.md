@@ -50,6 +50,7 @@ Go over all the Swift and iOS topics we have covered in class and the assignment
 - UITableView (prototype) cells 
 - Downloading content from a website and everything that goes with that.
 - Delegate and Datasource Errors
+- cAsE sensitivity. This will be easy to catch especially since the compiler will generate an error for this. But we want to make sure you are wary of the case.
 
 #### Things We Won't Test
 - Your knowledge/memorization of the APIs. You can use autocomplete and the internet to lookup function declarations and header documentation for the purpose of the function
