@@ -2,7 +2,7 @@
 
 ## Overview
 
-This midterm exam is structured to test your ability to detect and rectify common errors and problems with Swift and Xcode. The idea is to get a better sense of fixing issues that have  come up during your assignments. You are allowed to, and even encouraged, to use resources like stackoverflow (your bestest friend), your notes and most importantly the **compiler** inside Xcode to help you through this exam (most people forget about this crucial tool which will help you through compiler errors).
+This midterm exam is structured to test your ability to detect and rectify common errors and problems with Swift and Xcode. The idea is to get a better sense of fixing issues that have  come up during your assignments. You are allowed to, and even encouraged, to use resources like stackoverflow (your bestest friend), your notes and most importantly the **compiler** inside Xcode to help you through this exam. Most people forget about using the compiler to their advantage, this crucial tool which will help you through all errors in your code, (although the messages might be slightly mysterious at times you should get familiar with the common ones).
 
 ## Setup
 
