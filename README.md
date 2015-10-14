@@ -55,6 +55,7 @@ Go over all the Swift and iOS topics we have covered in class and the assignment
 - Your knowledge/memorization of the APIs. You can use autocomplete and the internet to lookup function declarations and header documentation for the purpose of the function
 - Auto Layout issues. (If you run into these you probably modified the storyboard in a way that was not intended)
 - In general, if you feel like you are writing many lines of code you are probably doing something wrong. The exam is more about fixing things than building things. You won't ever have to write more than 2-3 (probably even less) lines for a single bug or issue.
+- Differences between older versions of Swift and the newest one. Specifically, you do not need to worry about the issues with touchesBegan and similar errors you may have been facing on the assignments.
 - Any other Swift features we haven't covered in class like generics, reference cycles, etc. We also won't test your knowledge of protocols directly even though we covered it, but understanding the concepts will help you immensely with the other bugs/issues.
 
 ## Debugging
