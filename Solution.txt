@@ -1,0 +1,55 @@
+## SOLUTION FOR MIDTERM REVIEW ##
+
+- First we try building the app with ⌘B. And we get 6 compiler errors.
+- Now we read them and notice that the 3rd one seems legible. So lets go to that one first.
+- It says cannot convert type [String] to [Int]. So we need to fix this. Its a simple fix we can either change the Int word in line 15 in ViewController.swift to String like it was supposed to be or just remove the type specification and let the compiler figure it out itself.
+- Now we have 5 errors. 3 of them are autofixable by Xcode (we know this because of the different icon. Look at the icons and notice the differences)
+- Let's go to the first autofixable errors.
+- The first one is on line 29. Xcode is saying we are missing an exclamation point and it puts on the correct place. Let's allow Xcode to make that fix for us.
+- The next ones are on line 46 and 47. Again more errors about !'s. Let's allow Xcode to fix this too. 
+- Now the two lines look like this: 
+	someArray[i] = someArray[random]
+	someArray[random] = temp
+- Oh no! Even after fixing the !s Xcode is still saying there are errors. 
+- Except now its a different error. Its asking us to change let someArray to var someArray on line 15 so that we can mutate the Array. Lets fix that
+- The next error says expected ( in argument list of function declaration. The function shuffle on line 38 is missing () after the function declaration. Lets fix that.
+- We are now down to one!
+- THe error says ViewController has no initializers. The reason for this was covered in class. The tableView declaration on the next line is causing this error. Lets fix it to be this instead: 
+	@IBOutlet var tableView: UITableView!
+Notice the ending ! that part is crucial.
+- Okay since we just made it an outlet we should probably hook it up in the storyboard. Over to the storyboard. 
+- Simply connecting it in the storyboard like we have done in class should do it.
+- Let's try building again with ⌘B. Oh there is stil one error. 
+- The error is on line 30 it says we are missing a return in a function. Looks like I forgot to return the cell inside the cellForRowAtIndexPath function. That shoud be simple enough to fix just add: return cell
+- Yay, no warnings and no errors!
+- Lets run with ⌘R.
+- Oh the app crashed! We should have seen that coming...
+- The error message from the console says: [UIView tableView:numberOfRowsInSection:]: unrecognized selector sent to instance.
+- We probably setup the delegate and datasource incorrectly. Lets go to the storyboard delete the connections made and write code to do this better instead.
+- Inside viewDidLoad, lets add this code (note this can be done inside the storyboard, but its better to do it in code and you will see why in the next bullet):
+	tableView.dataSource = self
+	tableView.delegate = self
+	tableView.reloadData()
+- Great lets try running again. Oh wait another compiler error.
+- It says we are setting the dataSource to an object that isn't a UITableViewDataSource. But we are implementing all the required functions like cellForRowAtIndexPath? Right? 
+- Wrong! We forgot to tell the compiler that we conform to UITableViewDataSource. Go to line 11 and add the data source conformance.
+- But now it says we don't conform to the DataSource protocol. 
+- Those of you with eagle eyes probably noticed we implemented numberOfSectionsInTableView but not the number of rows, which is a required function. So let's go do that now.
+- Add this code to the class:
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+	{
+		return someArray.count
+	}
+- That should get rid of the errors.
+- Great the tableView shows up and nothing is crashing.
+- But it is not shuffling as we expected. Again if you have a good eye you probably caught that we aren't reloading the table after shuffle().
+- Let's do that inside the didSelectRowAtIndexPath method.
+- Add this code after the shuffle call.
+	tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+alternatively you could do
+	tableView.reloadData()
+but the latter doesn't have a nice animation like the first one does.
+- Great lets run again.
+- Awesome, now whenever we tap on a row it shuffles all the rows. Everything works perfectly now.
+
+We are done. The app works as expected. The zip file has the code implemented correctly.
